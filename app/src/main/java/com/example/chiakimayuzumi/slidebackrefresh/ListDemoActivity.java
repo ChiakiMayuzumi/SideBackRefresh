@@ -1,12 +1,12 @@
 package com.example.chiakimayuzumi.slidebackrefresh;
 
 import android.os.Handler;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.chiakimayuzumi.slidebackrefresh.view.PullRecycler;
 
@@ -30,6 +30,8 @@ public class ListDemoActivity extends BaseListActivity {
   protected void setUpView() {
     //初始化 recycler，不用改
     recycler = (PullRecycler) findViewById(R.id.pullRecycler);
+    setUpToolbar(R.string.test);
+
   }
 
   @Override
@@ -38,6 +40,7 @@ public class ListDemoActivity extends BaseListActivity {
     super.setUpData();
     adapter.setIsHeaderShown(true);
     recycler.setRefreshing();
+
   }
 
   @Override

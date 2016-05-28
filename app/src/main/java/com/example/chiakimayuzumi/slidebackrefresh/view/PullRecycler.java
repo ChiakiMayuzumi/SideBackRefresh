@@ -52,17 +52,18 @@ public class PullRecycler extends FrameLayout implements SwipeRefreshLayout.OnRe
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
                 if (mCurrentState == ACTION_IDLE && isLoadMoreEnabled && checkIfNeedLoadMore()) {
                     mCurrentState = ACTION_LOAD_MORE_REFRESH;
                     adapter.onLoadMoreStateChanged(true);
                     mSwipeRefreshLayout.setEnabled(false);
                     listener.onRefresh(ACTION_LOAD_MORE_REFRESH);
                 }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
             }
         });
     }

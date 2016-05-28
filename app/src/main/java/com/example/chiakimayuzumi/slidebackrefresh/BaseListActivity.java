@@ -1,9 +1,11 @@
 package com.example.chiakimayuzumi.slidebackrefresh;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import com.example.chiakimayuzumi.slidebackrefresh.view.DividerItemDecoration;
@@ -22,13 +24,35 @@ public abstract class BaseListActivity<T> extends SideBackRefreshActivity implem
     protected BaseListAdapter adapter;
     protected ArrayList<T> mDataList;
     protected PullRecycler recycler;
+    protected Toolbar mToolbar;
+    protected TextView mToolbarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setUpContentView();
+        //setUpToolbar();
         setUpView();
         setUpData();
+    }
+
+    protected void setUpToolbar(int ResId) {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbarTitle = (TextView) findViewById(R.id.toolbar_title);
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("");
+
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        mToolbar.setNavigationIcon(R.mipmap.ic_back_android);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        mToolbarTitle.setText(ResId);
     }
 
     protected abstract void setUpContentView();

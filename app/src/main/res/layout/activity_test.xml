@@ -4,6 +4,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <include layout= "@layout/widget_toolbar"/>
+
     <com.example.chiakimayuzumi.slidebackrefresh.view.PullRecycler
         android:id="@id/pullRecycler"
         android:layout_width="match_parent"
