@@ -17,6 +17,7 @@
         </activity>
 
         <activity android:name=".TestOneActivity"/>
+        <activity android:name=".ListDemoActivity"/>
     </application>
 
 </manifest>

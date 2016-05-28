@@ -17,12 +17,12 @@ public class MainActivity extends SideBackRefreshActivity {
 
     mTextView = (TextView) findViewById(R.id.text);
 
-    mTextView.setText("点击进入 TestOneActivity");
+    mTextView.setText("点击进入 TestDemo");
 
     mTextView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this,TestOneActivity.class);
+        Intent intent = new Intent(MainActivity.this,ListDemoActivity.class);
         startActivity(intent);
       }
     });
